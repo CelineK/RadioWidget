@@ -82,7 +82,7 @@ class RadioView extends WidgetView {
 			this.stationsList.appendChild(this.stationsListOption);
 		};
 		
-		//Fonction événement de "stationsList" qui fait appel à la fonction "stationCLick" du controller
+		//Fonction événement de "stationsList" qui fait appel à la fonction "stationClick" du controller
 		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
 	}
 	
