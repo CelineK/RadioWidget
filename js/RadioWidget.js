@@ -62,7 +62,7 @@ class RadioView extends WidgetView {
 		
 		this.stationsList = document.createElement("select");
 		this.stationsList.setAttribute("id","radioList");
-		SS.style(this.select,{"width": "100%", "cursor": "pointer", "color": "black"});
+		SS.style(this.stationsList,{"width": "100%", "cursor": "pointer", "color": "black"});
 		this.stage.appendChild(this.stationsList);
 		
 		this.stationsAudio = document.createElement("audio");
