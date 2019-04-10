@@ -9,7 +9,7 @@ class RadioWidget extends Widget {
 		this.header = true;
 		this.footer = true;
 		this.sizeX = 1.8;
-		this.sizeY = 1;
+		this.sizeY = 0.9;
 		this.radius = 15;
 	}
 	
