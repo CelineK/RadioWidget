@@ -9,7 +9,7 @@ class RadioWidget extends Widget {
 		this.header = true;
 		this.footer = true;
 		this.sizeX = 1.8;
-		this.sizeY = 0.8;
+		this.sizeY = 1;
 		this.radius = 15;
 	}
 	
@@ -67,7 +67,7 @@ class RadioView extends WidgetView {
 		
 		this.stationsAudio = document.createElement("audio");
 		this.stationsAudio.controls = "controls";
-		SS.style(this.stationsAudio, {"backgroundColor":"#000000"});
+		SS.style(this.stationsAudio, {"backgroundColor":"#000000", "marginTop": "10px"});
 		this.stage.appendChild(this.stationsAudio);
 		
 		var stations = this.mvc.model.stations();
