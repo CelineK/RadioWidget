@@ -25,6 +25,7 @@ class RadioModel extends WidgetModel {
 		super();
 	}
 	
+	//Présentation des stations avec leur lien internet
 	stations() {
 		return {
 			"Sélectionnez votre station": "" ,
@@ -60,16 +61,19 @@ class RadioView extends WidgetView {
 	    	SS.style(this.footer, {"backgroundColor": "maroon"});
 	    	SS.style(this.stage, {"backgroundColor": "white", "color": "white"});
 		
+		//Création de la liste de stations
 		this.stationsList = document.createElement("select");
 		this.stationsList.setAttribute("id","radioList");
 		SS.style(this.stationsList,{"width": "100%", "cursor": "pointer", "color": "black"});
 		this.stage.appendChild(this.stationsList);
 		
+		//Création d'une balise audio avec un contrôleur prédéfini
 		this.stationsAudio = document.createElement("audio");
 		this.stationsAudio.controls = "controls";
 		SS.style(this.stationsAudio, {"backgroundColor":"#000000", "marginTop": "10px"});
 		this.stage.appendChild(this.stationsAudio);
 		
+		//Intégration des différentes stations de radio dans la liste "stationsList"
 		var stations = this.mvc.model.stations();
 		for(var key in stations) {
 			this.stationsListOption = document.createElement("option");
@@ -78,6 +82,7 @@ class RadioView extends WidgetView {
 			this.stationsList.appendChild(this.stationsListOption);
 		};
 		
+		//Fonction événement de "stationsList" qui fait appel à la fonction "stationCLick" du controller
 		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
 	}
 	
@@ -93,6 +98,7 @@ class RadioController extends WidgetController {
 		super.setUp();	
 	}
 	
+	//Fonction qui joue la station séléctionnée
   	stationClick(station) {
  		console.log(station);
   		console.log(this.mvc.model.stations()[station]);
