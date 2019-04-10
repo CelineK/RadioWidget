@@ -78,7 +78,7 @@ class RadioView extends WidgetView {
 			this.stationsList.appendChild(this.stationsListOption);
 		};
 		
-		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.select.value));
+		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
 	}
 	
 }
