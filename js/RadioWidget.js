@@ -8,17 +8,14 @@ class RadioWidget extends Widget {
 		super.setUp();
 		this.header = true;
 		this.footer = true;
-		this.sizeX = 2;
-		this.sizeY = 1;
-		this.radius = 10;
-
+		this.sizeX = 1.8;
+		this.sizeY = 0.8;
+		this.radius = 15;
 	}
 	
-	async ready() {
+	/*async ready() {
 		super.ready();
-		
-		
-	}
+	}*/
 	
 }
 
@@ -57,34 +54,33 @@ class RadioView extends WidgetView {
 	}
 
 	draw() {
-	super.draw();
-	    this.header.innerHTML = "Radio";
-
+		super.draw();
+	    	this.header.innerHTML = "Radio";
+		SS.style(this.header, {"backgroundColor": "maroon"});
+	    	SS.style(this.footer, {"backgroundColor": "maroon"});
+	    	SS.style(this.stage, {"backgroundColor": "white", "color": "white"});
 		
 		this.select = document.createElement("select");
 		this.select.setAttribute("id","stationSelect");
-		SS.style(this.select,{"width": "100%", "cursor": "pointer"});
+		SS.style(this.select,{"width": "100%", "cursor": "pointer", "color": "black"});
 		this.stage.appendChild(this.select);
 		
 		this.stationAudio = document.createElement("audio");
 		this.stationAudio.controls = "controls";
+		SS.style(this.stationAudio, {"backgroundColor":"#000000"});
+		this.stage.appendChild(this.stationAudio);
 		
 		var stations = this.mvc.model.stations();
-		
 		for(var key in stations) {
 			this.option = document.createElement("option");
 			this.option.value = key;
 			this.option.text = key;
 			this.select.appendChild(this.option);
-			
-			//this.stationAudio.src = this.station[key];
-			//this.stationAudio.type = "audio";
 		};
 		
-		this.stage.appendChild(this.stationAudio);
-		//this.select.addEventListener("change",this.mvc.controller.stationSelect());
 		Events.on(this.select, "change", (event) => this.mvc.controller.stationSelect(this.select.value));
 	}
+	
 }
 
 class RadioController extends WidgetController {
@@ -94,15 +90,14 @@ class RadioController extends WidgetController {
 	}
 	
 	setUp() {
-		super.setUp();
-		
+		super.setUp();	
 	}
 	
-    stationSelect(station) {
- 	console.log(station);
-  	console.log(this.mvc.model.stations()[station]);
-  	this.try.mvc.view.stationAudio.setAttribute("src", this.mvc.model.stations()[station]);
-   	this.try.mvc.view.footer.innerHTML= station;
+  	stationSelect(station) {
+ 		console.log(station);
+  		console.log(this.mvc.model.stations()[station]);
+  		this.try.mvc.view.stationAudio.setAttribute("src", this.mvc.model.stations()[station]);
+   		this.try.mvc.view.footer.innerHTML= station;
 	}
 
 }
