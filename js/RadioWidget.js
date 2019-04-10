@@ -60,25 +60,25 @@ class RadioView extends WidgetView {
 	    	SS.style(this.footer, {"backgroundColor": "maroon"});
 	    	SS.style(this.stage, {"backgroundColor": "white", "color": "white"});
 		
-		this.select = document.createElement("select");
-		this.select.setAttribute("id","stationSelect");
+		this.stationsList = document.createElement("select");
+		this.stationsList.setAttribute("id","radioList");
 		SS.style(this.select,{"width": "100%", "cursor": "pointer", "color": "black"});
-		this.stage.appendChild(this.select);
+		this.stage.appendChild(this.stationsList);
 		
-		this.stationAudio = document.createElement("audio");
-		this.stationAudio.controls = "controls";
-		SS.style(this.stationAudio, {"backgroundColor":"#000000"});
-		this.stage.appendChild(this.stationAudio);
+		this.stationsAudio = document.createElement("audio");
+		this.stationsAudio.controls = "controls";
+		SS.style(this.stationsAudio, {"backgroundColor":"#000000"});
+		this.stage.appendChild(this.stationsAudio);
 		
 		var stations = this.mvc.model.stations();
 		for(var key in stations) {
-			this.option = document.createElement("option");
-			this.option.value = key;
-			this.option.text = key;
-			this.select.appendChild(this.option);
+			this.stationsListOption = document.createElement("option");
+			this.stationsListOption.value = key;
+			this.stationsListOption.text = key;
+			this.select.appendChild(this.stationsListOption);
 		};
 		
-		Events.on(this.select, "change", (event) => this.mvc.controller.stationSelect(this.select.value));
+		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.select.value));
 	}
 	
 }
@@ -93,10 +93,10 @@ class RadioController extends WidgetController {
 		super.setUp();	
 	}
 	
-  	stationSelect(station) {
+  	stationClick(station) {
  		console.log(station);
   		console.log(this.mvc.model.stations()[station]);
-  		this.try.mvc.view.stationAudio.setAttribute("src", this.mvc.model.stations()[station]);
+  		this.try.mvc.view.stationsAudio.setAttribute("src", this.mvc.model.stations()[station]);
    		this.try.mvc.view.footer.innerHTML= station;
 	}
 
