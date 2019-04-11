@@ -73,6 +73,10 @@ class RadioView extends WidgetView {
 		SS.style(this.stationsAudio, {"backgroundColor":"#000000", "marginTop": "10px"});
 		this.stage.appendChild(this.stationsAudio);
 		
+		this.span = document.createElement("span");
+		SS.style(this.span, {"fontSize": "10px"});
+		this.stage.appendChild(this.span);
+		
 		//Intégration des différentes stations de radio dans la liste "stationsList"
 		var stations = this.mvc.model.stations();
 		for(var key in stations) {
@@ -84,6 +88,10 @@ class RadioView extends WidgetView {
 		
 		//Fonction événement de "stationsList" qui fait appel à la fonction "stationClick" du controller
 		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
+	}
+	
+	update(title) {
+		this.span.innerHTML = title;
 	}
 	
 }
@@ -104,6 +112,15 @@ class RadioController extends WidgetController {
   		console.log(this.mvc.model.stations()[station]);
   		this.try.mvc.view.stationsAudio.setAttribute("src", this.mvc.model.stations()[station]);
    		this.try.mvc.view.footer.innerHTML = station;
+	}
+	
+	async load() {
+		let result = await this.mvc.main.dom("https://www.radioways.fr"); // load web page
+		let domstr = _atob(result.response.dom); // decode result
+		let parser = new DOMParser(); // init dom parser
+		let dom = parser.parseFromString(domstr, "text/html"); // inject result
+		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="titre-en-cours"]').firstResult; // find interesting things
+		this.mvc.view.update(article.textContent);
 	}
 
 }
