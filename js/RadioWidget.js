@@ -20,7 +20,7 @@ class RadioWidget extends Widget {
 	async ready() {
 		super.ready();
 		
-		this.controller.load();
+		this.mvc.controller.load();
 }
 	
 }
