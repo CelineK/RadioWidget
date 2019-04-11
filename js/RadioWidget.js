@@ -115,13 +115,12 @@ class RadioController extends WidgetController {
 	}
 	
 	async load() {
-		let result = await this.mvc.main.dom("https://www.radioways.fr"); // load web page
+		let result = await this.mvc.main.dom("https://www.radioways.fr/"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="titre-en-cours"]').firstResult; // find interesting things
 		this.mvc.view.update(article.textContent);
-		console.log(this.mvc.view.update(article.textContent));
 		console.log(article.textContent);
 	}
 
