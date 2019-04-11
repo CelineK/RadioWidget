@@ -112,7 +112,7 @@ class RadioController extends WidgetController {
   		console.log(this.mvc.model.stations()[station]);
   		this.try.mvc.view.stationsAudio.setAttribute("src", this.mvc.model.stations()[station]);
    		this.try.mvc.view.footer.innerHTML = station;
-		load();
+		this.load();
 	}
 	
 	async load() {
