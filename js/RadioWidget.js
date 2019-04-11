@@ -13,15 +13,10 @@ class RadioWidget extends Widget {
 		this.radius = 15;
 	}
 	
-	/*async ready() {
-		super.ready();
-	}*/
-	
 	async ready() {
 		super.ready();
-		
 		this.mvc.controller.load();
-}
+	}
 	
 }
 
@@ -127,7 +122,7 @@ class RadioController extends WidgetController {
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="titre-en-cours"]').firstResult; // find interesting things
-		this.mvc.view.update(article.textContent);
+		this.mvc.view.update(article.innerText);
 		console.log(article.textContent);
 	}
 
