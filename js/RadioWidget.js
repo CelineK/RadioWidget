@@ -121,6 +121,7 @@ class RadioController extends WidgetController {
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
 		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="titre-en-cours"]').firstResult; // find interesting things
 		this.mvc.view.update(article.textContent);
+		console.log(this.mvc.view.update(article.textContent);
 	}
 
 }
