@@ -36,7 +36,7 @@ class RadioModel extends WidgetModel {
 		return {
 			"Sélectionnez votre station": "" ,
 			Skyrock: "http://www.skyrock.fm/stream.php/mytuner_128mp3.mp3" ,
-			"Chérie": "https://scdn.nrjaudio.fm/fr/40104/aac_64.mp3?cdn_path=audio_lbs7" ,
+			"Chérie": "http://scdn.nrjaudio.fm/fr/40104/aac_64.mp3?cdn_path=audio_lbs7" ,
 			Generations: "http://generationfm.ice.infomaniak.ch/generationfm-high.mp3" ,
 			Nostalgie: "https://scdn.nrjaudio.fm/fr/40106/aac_64.mp3?cdn_path=audio_lbs7" ,
 			"Virgin Radio": "http://mp3lg4.tdf-cdn.com/9243/lag_164753.mp3" ,
