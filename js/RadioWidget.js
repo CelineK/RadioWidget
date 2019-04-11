@@ -17,6 +17,12 @@ class RadioWidget extends Widget {
 		super.ready();
 	}*/
 	
+	async ready() {
+		super.ready();
+		
+		this.controller.load();
+}
+	
 }
 
 class RadioModel extends WidgetModel {
