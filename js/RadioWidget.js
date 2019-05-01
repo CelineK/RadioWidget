@@ -31,11 +31,11 @@ class RadioModel extends WidgetModel {
 		return {
 			"Sélectionnez votre station": "" ,
 			Skyrock: "http://www.skyrock.fm/stream.php/mytuner_128mp3.mp3" ,
-			"Chérie": "http://scdn.nrjaudio.fm/fr/40104/aac_64.mp3?cdn_path=audio_lbs7" ,
+			//"Chérie": "http://scdn.nrjaudio.fm/fr/40104/aac_64.mp3?cdn_path=audio_lbs7" ,
 			Generations: "http://generationfm.ice.infomaniak.ch/generationfm-high.mp3" ,
-			Nostalgie: "http://scdn.nrjaudio.fm/fr/40106/aac_64.mp3?cdn_path=audio_lbs7" ,
+			//Nostalgie: "http://scdn.nrjaudio.fm/fr/40106/aac_64.mp3?cdn_path=audio_lbs7" ,
 			"Virgin Radio": "http://mp3lg4.tdf-cdn.com/9243/lag_164753.mp3" ,
-			NRJ: "http://scdn.nrjaudio.fm/fr/40050/aac_64.mp3?cdn_path=audio_lbs7" ,
+			//NRJ: "http://scdn.nrjaudio.fm/fr/40050/aac_64.mp3?cdn_path=audio_lbs7" ,
 			RFM: "http://rfm-live-mp3-128.scdn.arkena.com/rfm.mp3",
 			"Europe 1": "http://audiots.scdn.arkena.com/10713/europe1ts.mp3?date=2019-3-29T13:11:0" ,
 			"Jazz Radio": "http://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3" 
