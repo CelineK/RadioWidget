@@ -74,6 +74,7 @@ class RadioView extends WidgetView {
 		SS.style(this.stationsAudio, {"backgroundColor":"#000000", "marginTop": "10px"});
 		this.stage.appendChild(this.stationsAudio);
 		
+		//***********//
 		this.span = document.createElement("span");
 		SS.style(this.span, {"fontSize": "10px"});
 		this.stage.appendChild(this.span);
@@ -91,6 +92,7 @@ class RadioView extends WidgetView {
 		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
 	}
 	
+	//***********//
 	update(title) {
 		this.span.innerHTML = title;
 	}
@@ -116,6 +118,7 @@ class RadioController extends WidgetController {
 		this.load();
 	}
 	
+	//**********//
 	async load() {
 		let result = await this.mvc.main.dom("https://www.radioways.fr"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
