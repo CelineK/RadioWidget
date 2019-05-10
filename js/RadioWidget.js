@@ -16,7 +16,7 @@ class RadioWidget extends Widget {
 	
 	async ready() {
 		super.ready();
-		this.mvc.controller.load();
+		//this.mvc.controller.load(); NE FONCTIONNE PAS
 	}
 	
 }
@@ -77,7 +77,6 @@ class RadioView extends WidgetView {
 		SS.style(this.stationsAudio, {"backgroundColor":"#000000", "marginTop": "10px"});
 		this.stage.appendChild(this.stationsAudio);
 		
-		//***NE FONCTIONNE PAS***//
 		//Création d'une balise span pour afficher les informations (artiste + titre) de la musique en cours
 		/*this.span = document.createElement("span");
 		SS.style(this.span, {"fontSize": "10px"});
@@ -96,7 +95,6 @@ class RadioView extends WidgetView {
 		Events.on(this.stationsList, "change", (event) => this.mvc.controller.stationClick(this.stationsList.value));
 	}
 	
-	//***NE FONCTIONNE PAS***//
 	//Permet d'afficher le titre (+artiste) dans le span
 	/*update(title) {
 		this.span.innerHTML = title;
@@ -123,7 +121,6 @@ class RadioController extends WidgetController {
 		this.load();
 	}
 	
-	//***NE FONCTIONNE PAS***//
 	//Fonction qui récupère les informations de "titre-en-cours" sur www.radioways.fr
 	/*async load() {
 		let result = await this.mvc.main.dom("https://www.radioways.fr"); // load web page
