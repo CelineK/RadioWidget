@@ -118,7 +118,7 @@ class RadioController extends WidgetController {
   		console.log(this.mvc.model.stations()[station]); //affiche l'url de la station jouée dans la console
   		this.try.mvc.view.stationsAudio.setAttribute("src", this.mvc.model.stations()[station]);
    		this.try.mvc.view.footer.innerHTML = station;
-		this.load();
+		//this.load(); NE FONCTIONNE PAS
 	}
 	
 	//Fonction qui récupère les informations de "titre-en-cours" sur www.radioways.fr
