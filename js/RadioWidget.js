@@ -8,6 +8,7 @@ class RadioWidget extends Widget {
 		super.setUp();
 		this.header = true;
 		this.footer = true;
+		//Dimensions choisies par rapport à l'ordinateur du bocal (l'affichage varie sur un ordinateur et/ou navigateur web différent)
 		this.sizeX = 1.8;
 		this.sizeY = 0.9;
 		this.radius = 15;
